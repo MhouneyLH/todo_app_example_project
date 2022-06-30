@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'pages/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -7,18 +8,15 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
+  static const String title = 'Todo-App';
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Todo-App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Todo-App'),
-        ),
-      ),
+      home: HomePage(),
     );
   }
 }
