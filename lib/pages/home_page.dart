@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../main.dart';
+import '../widgets/add_todo_dialog_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -40,6 +41,18 @@ class _HomePageState extends State<HomePage> {
             label: 'Completed Todos',
           ),
         ],
+      ),
+      body: tabs[selectedIndex],
+      floatingActionButton: FloatingActionButton(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+        backgroundColor: Colors.black,
+        onPressed: () => showDialog(
+          context: context,
+          builder: (BuildContext context) => const AddToDoDialogWidget(),
+        ),
+        child: const Icon(Icons.add),
       ),
     );
   }
