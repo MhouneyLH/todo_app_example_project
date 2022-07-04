@@ -33,11 +33,11 @@ class _HomePageState extends State<HomePage> {
           selectedIndex = index;
         }),
         items: [
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(Icons.fact_check_outlined),
             label: 'Current Todos',
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(Icons.done, size: 28),
             label: 'Completed Todos',
           ),
