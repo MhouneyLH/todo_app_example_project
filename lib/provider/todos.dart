@@ -18,6 +18,21 @@ class TodosProvider extends ChangeNotifier {
       title: 'Daily machen2',
       description: 'Ganz viele wichtige Sachen2 🧑‍💻',
     ),
+    Todo(
+      createdTime: DateTime.now(),
+      title: 'Daily machen2',
+      description: 'Ganz viele wichtige Sachen2 🧑‍💻',
+    ),
+    Todo(
+      createdTime: DateTime.now(),
+      title: 'Daily machen2',
+      description: 'Ganz viele wichtige Sachen2 🧑‍💻',
+    ),
+    Todo(
+      createdTime: DateTime.now(),
+      title: 'Daily machen2',
+      description: 'Ganz viele wichtige Sachen2 🧑‍💻',
+    ),
   ];
 
   // making it public + filtering for only those todo's, that aren't done at the moment

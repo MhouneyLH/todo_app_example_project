@@ -8,31 +8,34 @@ class TodoWidget extends StatelessWidget {
   const TodoWidget({@required this.todo, Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => Slidable(
-        key: Key(todo?.id ?? '1'),
-        startActionPane: ActionPane(
-          motion: const DrawerMotion(),
-          children: [
-            SlidableAction(
-              backgroundColor: Colors.green,
-              label: 'Edit',
-              icon: Icons.edit,
-              onPressed: (context) {},
-            ),
-          ],
+  Widget build(BuildContext context) => ClipRRect(
+        borderRadius: BorderRadius.circular(16),
+        child: Slidable(
+          key: Key(todo?.id ?? '1'),
+          startActionPane: ActionPane(
+            motion: const DrawerMotion(),
+            children: [
+              SlidableAction(
+                backgroundColor: Colors.green,
+                label: 'Edit',
+                icon: Icons.edit,
+                onPressed: (context) {},
+              ),
+            ],
+          ),
+          endActionPane: ActionPane(
+            motion: const DrawerMotion(),
+            children: [
+              SlidableAction(
+                backgroundColor: Colors.red,
+                label: 'Delete',
+                icon: Icons.delete,
+                onPressed: (context) {},
+              ),
+            ],
+          ),
+          child: buildTodo(context),
         ),
-        endActionPane: ActionPane(
-          motion: const DrawerMotion(),
-          children: [
-            SlidableAction(
-              backgroundColor: Colors.red,
-              label: 'Delete',
-              icon: Icons.delete,
-              onPressed: (context) {},
-            ),
-          ],
-        ),
-        child: buildTodo(context),
       );
 
   Widget buildTodo(BuildContext context) => Container(
