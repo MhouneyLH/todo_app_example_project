@@ -8,7 +8,7 @@ class Todo {
   DateTime? createdTime;
   String? title;
   String? id;
-  String description;
+  String? description;
   bool isDone;
 
   Todo({
