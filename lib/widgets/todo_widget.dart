@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:todo_application/utils.dart';
 import '../model/todo.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:provider/provider.dart';
+import '../provider/todos.dart';
 
 class TodoWidget extends StatelessWidget {
   final Todo? todo;
@@ -30,7 +33,7 @@ class TodoWidget extends StatelessWidget {
                 backgroundColor: Colors.red,
                 label: 'Delete',
                 icon: Icons.delete,
-                onPressed: (context) {},
+                onPressed: (context) => deleteTodo(context, todo),
               ),
             ],
           ),
@@ -47,7 +50,16 @@ class TodoWidget extends StatelessWidget {
               activeColor: Theme.of(context).primaryColor,
               checkColor: Colors.white,
               value: todo?.isDone,
-              onChanged: (_) {},
+              onChanged: (_) {
+                final provider =
+                    Provider.of<TodosProvider>(context, listen: false);
+                final isDone = provider.toggleTodoStatus(todo);
+
+                Utils.showSnackBar(
+                  context,
+                  isDone ? 'Todo completed' : 'Todo marked as incomplete',
+                );
+              },
             ),
             const SizedBox(
               width: 20,
@@ -81,4 +93,11 @@ class TodoWidget extends StatelessWidget {
           ],
         ),
       );
+
+  void deleteTodo(BuildContext context, Todo? todo) {
+    final provider = Provider.of<TodosProvider>(context, listen: false);
+    provider.removeTodo(todo);
+
+    Utils.showSnackBar(context, 'The Todo was deleted');
+  }
 }

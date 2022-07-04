@@ -37,9 +37,22 @@ class TodosProvider extends ChangeNotifier {
 
   // making it public + filtering for only those todo's, that aren't done at the moment
   List<Todo> get todos => _todos.where((todo) => !todo.isDone).toList();
+  List<Todo> get todosCompleted => _todos.where((todo) => todo.isDone).toList();
 
   void addTodo(Todo todo) {
     _todos.add(todo);
     notifyListeners();
+  }
+
+  void removeTodo(Todo? todo) {
+    _todos.remove(todo);
+    notifyListeners();
+  }
+
+  bool toggleTodoStatus(Todo? todo) {
+    todo?.isDone = !todo.isDone;
+    notifyListeners();
+
+    return todo?.isDone ?? false;
   }
 }
