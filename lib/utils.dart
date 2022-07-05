@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class Utils {
@@ -11,4 +12,7 @@ class Utils {
             ),
           ),
         );
+
+  static DateTime toDateTime(Timestamp value) => value.toDate();
+  static dynamic fromDateTimeToJson(DateTime date) => date.toUtc();
 }
