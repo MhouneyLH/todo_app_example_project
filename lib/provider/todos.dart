@@ -5,33 +5,19 @@ class TodosProvider extends ChangeNotifier {
   final List<Todo> _todos = [
     Todo(
       createdTime: DateTime.now(),
-      title: 'Daily machen',
-      description: 'Ganz viele wichtige Sachen 🧑‍💻',
+      title: 'Vorlesung Feldmann anschauen🙃',
+      description: '- Aufpassen\n- Mitschriften machen',
     ),
     Todo(
       createdTime: DateTime.now(),
-      title: 'Daily machen1',
-      description: 'Ganz viele wichtige Sachen1 🧑‍💻',
+      title: 'Daniel schreiben 😁',
+      description: '- Projektarbeitsthema\n- Ideen zur Projektarbeit äußern 💡',
     ),
     Todo(
       createdTime: DateTime.now(),
-      title: 'Daily machen2',
-      description: 'Ganz viele wichtige Sachen2 🧑‍💻',
-    ),
-    Todo(
-      createdTime: DateTime.now(),
-      title: 'Daily machen2',
-      description: 'Ganz viele wichtige Sachen2 🧑‍💻',
-    ),
-    Todo(
-      createdTime: DateTime.now(),
-      title: 'Daily machen2',
-      description: 'Ganz viele wichtige Sachen2 🧑‍💻',
-    ),
-    Todo(
-      createdTime: DateTime.now(),
-      title: 'Daily machen2',
-      description: 'Ganz viele wichtige Sachen2 🧑‍💻',
+      title: 'Elektrotechnik lernen 💻',
+      description:
+          '- Gleichrichter\n- Transistor\n- Diode\n- allg. Grundlagen wiederholen',
     ),
   ];
 
