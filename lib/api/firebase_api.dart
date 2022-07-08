@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../model/todo.dart';
-import '../utils.dart';
 
 class FirebaseApi {
   static Future<String> createTodo(Todo todo) async {
