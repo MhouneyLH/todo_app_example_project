@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../model/todo.dart';
 
@@ -11,4 +12,11 @@ class FirebaseApi {
 
     return docTodo.id;
   }
+
+  static Stream<List<Todo>> readTodos() => FirebaseFirestore.instance
+      .collection('todo')
+      .orderBy(TodoField.createdTime, descending: true)
+      .snapshots()
+      .map((snapshot) =>
+          snapshot.docs.map((doc) => Todo.fromJson(doc.data())).toList());
 }
