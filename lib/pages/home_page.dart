@@ -56,13 +56,15 @@ class _HomePageState extends State<HomePage> {
             return Text('Something went wrong! ${snapshot.error}');
           } else if (snapshot.hasData) {
             final todos = snapshot.data!;
+
             // hier keine data (keine snap-elemente) -> könnte an Returnwert von Stream-Funktion liegen
             // -> mal überprüfen, s. https://stackoverflow.com/questions/66951442/streambuilder-snapshot-has-no-data-flutter
-            String t = todos.elementAt(todos.length - 1).title ?? 'hier';
-            debugPrint('HIIIIIIIIIIIIIIIIIIER: ' + t);
-            final provider = Provider.of<TodosProvider>(context);
+            // String t = todos.elementAt(todos.length - 1).title ?? 'hier';
+            // debugPrint('HIIIIIIIIIIIIIIIIIIER: ' + t);
 
+            final provider = Provider.of<TodosProvider>(context);
             provider.setTodos(todos);
+
             return tabs[selectedIndex];
           } else {
             return const Center(child: CircularProgressIndicator());
