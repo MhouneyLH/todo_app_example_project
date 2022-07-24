@@ -17,22 +17,19 @@ class TodosProvider extends ChangeNotifier {
 
   void addTodo(Todo todo) => FirebaseApi.createTodo(todo);
 
-  void removeTodo(Todo? todo) {
-    _todos.remove(todo);
-    notifyListeners();
-  }
+  void removeTodo(Todo? todo) => FirebaseApi.deleteTodo(todo!);
 
   bool toggleTodoStatus(Todo? todo) {
     todo?.isDone = !todo.isDone;
-    notifyListeners();
+    FirebaseApi.updateTodo(todo!);
 
-    return todo?.isDone ?? false;
+    return todo.isDone;
   }
 
   void updateTodo(Todo? todo, String? title, String? description) {
     todo?.title = title;
     todo?.description = description;
 
-    notifyListeners();
+    FirebaseApi.updateTodo(todo!);
   }
 }

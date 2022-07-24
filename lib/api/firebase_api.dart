@@ -19,4 +19,14 @@ class FirebaseApi {
       .snapshots()
       .map((snapshot) =>
           snapshot.docs.map((doc) => Todo.fromJson(doc.data())).toList());
+
+  static Future updateTodo(Todo todo) async {
+    final docTodo = FirebaseFirestore.instance.collection('todo').doc(todo.id);
+    await docTodo.update(todo.toJson());
+  }
+
+  static Future deleteTodo(Todo todo) async {
+    final docTodo = FirebaseFirestore.instance.collection('todo').doc(todo.id);
+    await docTodo.delete();
+  }
 }

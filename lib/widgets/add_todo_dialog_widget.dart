@@ -33,7 +33,7 @@ class _AddToDoDialogWidgetState extends State<AddToDoDialogWidget> {
                 ),
               ),
               const SizedBox(
-                height: 8,
+                height: 5,
               ),
               TodoFormWidget(
                 onChangedTitle: (title) => setState(() => this.title = title),
